@@ -1,0 +1,16 @@
+version: "3"
+services:
+  react:
+    build:
+      context: .
+      dockerfile: react.dockerfile
+    ports:
+      - "3000:3000"
+  flask:
+    build:
+      context: .
+      dockerfile: flask.dockerfile
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./large_data:/large_data

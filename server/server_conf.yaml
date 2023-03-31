@@ -1,0 +1,11 @@
+server_ip: 192.168.1.152
+flask_port: '3333'
+
+thumbnail_size: 512
+source_images_folder:  source/
+starting_image_folder: main/
+albums_folder: ../large_data/albums
+embeddings_path: ../large_data/embeddings.pickle
+
+database_folder: ./db
+database_path: ./db/user_data.db
