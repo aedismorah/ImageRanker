@@ -79,9 +79,12 @@ def init_thumbnails(conf):
         crop = CenterCrop(conf.thumbnail_size, conf.thumbnail_size)
 
         for filename in tqdm(os.listdir(starting_image_folder)):
-            image_path     = os.path.join(starting_image_folder, filename)
-            thumbnail_path = os.path.join(thumbnails_folder, filename)
+            try:
+                image_path     = os.path.join(starting_image_folder, filename)
+                thumbnail_path = os.path.join(thumbnails_folder, filename)
 
-            image = np.array(Image.open(image_path))
-            thumbnail = Image.fromarray(crop(**resize(image=image))['image'])
-            thumbnail.save(thumbnail_path)
+                image = np.array(Image.open(image_path))
+                thumbnail = Image.fromarray(crop(**resize(image=image))['image'])
+                thumbnail.save(thumbnail_path)
+            except:
+                print(f'error occured while generating thumbnail for image: {file}')
