@@ -87,4 +87,4 @@ def init_thumbnails(conf):
                 thumbnail = Image.fromarray(crop(**resize(image=image))['image'])
                 thumbnail.save(thumbnail_path)
             except:
-                print(f'error occured while generating thumbnail for image: {file}')
+                print(f'error occured while generating thumbnail for image: {filename}')
